@@ -1,9 +1,8 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-
-from .helpers import year
 from users.models import User
 
+from .helpers import year
 
 MODELS_STR_MAX_LENGTH = 10
 
