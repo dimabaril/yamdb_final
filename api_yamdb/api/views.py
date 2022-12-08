@@ -37,7 +37,6 @@ class APISignUp(APIView):
             serializer.save()
             self.create_confirmation_code_and_send_email(
                 serializer.data['username'])
-
             return Response(
                 {'email': serializer.data['email'],
                  'username': serializer.data['username']},
@@ -65,11 +64,9 @@ class APIToken(APIView):
         if serializer.is_valid(raise_exception=True):
             user = get_object_or_404(
                 User, username=serializer.data['username'])
-
             if default_token_generator.check_token(
                     user, serializer.data['confirmation_code']):
                 token = AccessToken.for_user(user)
-
                 return Response(
                     {'token': str(token)}, status=status.HTTP_200_OK)
 
