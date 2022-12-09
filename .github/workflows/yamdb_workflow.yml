@@ -77,9 +77,12 @@ jobs:
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker-compose stop
-            sudo docker-compose rm web
-            # sudo docker image rm dimabaril/yamdb_final
-            # sudo docker image prune -f
+            sudo docker compose rm web
+            y
+            sudo docker image rm dimabaril/yamdb_final
+            y
+            sudo docker image prune -f
+            y
             # sudo docker-compose pull
             touch .env
             echo DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} >> .env
