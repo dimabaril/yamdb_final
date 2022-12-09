@@ -1,2 +1,1 @@
-# yamdb_final
-yamdb_final
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
