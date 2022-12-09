@@ -81,11 +81,14 @@ jobs:
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # sudo docker-compose stop
-            sudo docker-compose down
             # sudo docker-compose rm web
             # sudo docker image rm dimabaril/yamdb_final
-            sudo docker image prune -f
-            sudo docker-compose pull
+            # sudo docker image prune -f
+            # sudo docker-compose pull
+
+            sudo docker-compose down
+            sudo docker rmi $(sudo docker images -a)
+
             touch .env
             echo DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} >> .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env

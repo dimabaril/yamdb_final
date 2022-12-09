@@ -26,6 +26,8 @@ jobs:
           python -m pip install --upgrade pip 
           # установка flake8 и его плагинов
           pip install flake8 pep8-naming flake8-broken-line flake8-isort # flake8-return
+          # установка pytest
+          pip install pytest
           # установка зависимостей
           pip install -r api_yamdb/requirements.txt
 
@@ -33,11 +35,13 @@ jobs:
         run: |
           # запуск проверки проекта по flake8
           python -m flake8
+          # запуск pytest
+          pytest
           # перейти в папку, содержащую manage.py — 
-          #<корневая_папка_infra_actions>/<папка_проекта>/manage.py
-          cd api_yamdb/
-          # запустить написанные разработчиком тесты
-          python manage.py test
+          # # <корневая_папка_infra_actions>/<папка_проекта>/manage.py
+          # cd api_yamdb/
+          # # запустить написанные разработчиком тесты
+          # python manage.py test
 
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
@@ -77,11 +81,14 @@ jobs:
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # sudo docker-compose stop
-            sudo docker-compose down
             # sudo docker-compose rm web
             # sudo docker image rm dimabaril/yamdb_final
-            sudo docker image prune -f
-            sudo docker-compose pull
+            # sudo docker image prune -f
+            # sudo docker-compose pull
+
+            sudo docker-compose down
+            sudo docker rmi $(sudo docker images -a)
+
             touch .env
             echo DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} >> .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
