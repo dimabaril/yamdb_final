@@ -77,7 +77,7 @@ jobs:
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             sudo docker-compose stop
-            sudo docker compose rm web
+            sudo docker-compose rm web
             sudo docker image rm dimabaril/yamdb_final
             sudo docker image prune -f
             # sudo docker-compose pull
