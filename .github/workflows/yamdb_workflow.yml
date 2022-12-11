@@ -55,12 +55,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            # sudo docker-compose down
-            # sudo docker rmi $(sudo docker images -a)
-
             sudo docker-compose down
-            sudo docker image rm dimabaril/yamdb_final
-            # sudo docker-compose pull
+            sudo docker rmi $(sudo docker images -a)
 
             touch .env
             echo DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} >> .env

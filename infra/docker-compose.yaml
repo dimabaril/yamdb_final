@@ -9,7 +9,7 @@ services:
       - ./.env
 
   web:
-    image: dimabaril/yamdb_final:latest
+    image: dimabaril/yamdb_final
     restart: always
     volumes:
       - static_value:/app/static/
