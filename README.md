@@ -1,4 +1,5 @@
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/dimabaril/yamdb_final/actions/workflows/yamdb_workflow/badge.svg
+)
 
 ## Проект доступен по адресу:
 
