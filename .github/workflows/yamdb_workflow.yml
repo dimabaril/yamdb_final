@@ -59,8 +59,8 @@ jobs:
             # sudo docker rmi $(sudo docker images -a)
 
             sudo docker-compose stop
-            sudo docker-compose rm web -f
-            sudo docker image prune -af
+            sudo docker-compose rm -f web
+            sudo docker image prune -a -f
 
             touch .env
             echo DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} >> .env
