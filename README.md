@@ -1,7 +1,7 @@
 # Проект Yamdb_final
 ![example workflow](https://github.com/dimabaril/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 ## Проект доступен по адресу:
-(vps может быть выключен)
+(vps может быть выключен)  
 http://51.250.86.197/redoc/ - описание запросов API  
 http://51.250.86.197/admin/ - админка  
 http://51.250.86.197/api/v1/titles/ - пример для запроса по API  
